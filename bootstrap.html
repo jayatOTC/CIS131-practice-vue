@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practice Vue Components</title>
+    <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script 
+        src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    
+    <div id = "app">    
+        <div style="display:flex">
+            
+            <card 
+                image="pic1.jpeg" 
+                title="Tree in a field" 
+                text = "A tree in a farmers field.  Note: the wind is blowing">
+            </card>
+        
+            <card
+                image="pic2.jpg" 
+                title = "Trash on a beach" 
+                text = " Someone lost their classes on a beach.
+                A photographer snapped a picture.">
+            </card>
+                    
+            <card 
+                image="pic3.jpeg" 
+                title = "What blew up?" 
+                text = "Is he aware of what is going on around him?">
+            </card>
+           
+        </div> <!-- end div display flex -->
+    </div>   <!-- end div app --> 
+
+    <script>
+        Vue.component('card', 
+        {
+            props: ['image', 'title', 'text'],  
+            template: 
+            `<div class="card"      
+                style="width: 18rem; flex:1">
+                <img v-bind:src="image" 
+                class="card-img-top" 
+                alt={{image}}>
+                    
+                <div class="card-body">  
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{text}} </p>
+                </div>   
+            </div>`
+        } )  
+
+        var app = new Vue
+        ({
+            el: "#app",
+            data: 
+            {
+                message: "wait here"
+            }
+        })
+    </script>
+</body>
+</html>
